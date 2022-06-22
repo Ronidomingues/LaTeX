@@ -1,0 +1,92 @@
+\documentclass[11pt,openright,oneside,a4paper,english,brazil]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+%\usepackage{html}%ESTE PACOTE NÃO ESTA DISPONÍVEL NO LATEX DO LINUX%
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amstext}
+\usepackage{euscript}
+\usepackage{a4wide}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage[active]{srcltx}
+\usepackage[notcite,notref]{showkeys}
+\usepackage{verbatim}
+\usepackage[hmargin=2cm]{geometry}
+\usepackage{dsfont}
+\usepackage[x11names]{xcolor}
+\usepackage{vwcol}
+\usepackage{pgf,pgfplots}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{fourier}
+
+\definecolor{azul}{RGB}{41,5,195}
+
+\geometry{a4paper,
+	top=1cm,	
+	bottom=2cm,	
+	left=1.5cm,
+	right=1.5cm,
+}
+
+\pagestyle{empty}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{main}
+\pgfsetlayers{background,main}
+
+\begin{document}
+\begin{tikzpicture}[remember picture, overlay]
+\node(logoufrj) at (current page.north west) [anchor=north west,xshift=1cm, yshift=-.7cm]{\includegraphics[width=2cm]{ufrj.png}};
+\node(logoamavila) at(current page.north east)[anchor=north east, xshift=-1cm,yshift=-.8cm]{\includegraphics[width=2cm]{ufrj.png}};
+\node(titulo) at (logoufrj.north east) [anchor=north west, minimum width=\linewidth-2.5cm, align=center, yshift=1mm]{\textcolor{red}{\Large \sc **************************}};
+\node(disciplina) at (titulo.south west) [anchor=north west]{\large \sc ***************************};
+\node(prof) at (titulo.west)[anchor=west, yshift=-1.5cm]{\large Professor: \sc Ronivaldo Domingues de Andrade};
+\node (aluno) at (titulo.west)[anchor=west,yshift=-2.5cm]{\large Aluno: \rule{12cm}{.1mm}};
+\node(data) at (titulo.south east)[anchor=north east,xshift=-3cm,yshift=-.9cm]{\large Data: \sc **/**/****};
+\begin{pgfonlayer}{background}
+\draw ([yshift=2mm, xshift=-2mm]logoufrj.north west) rectangle ([xshift=2mm, yshift=-2mm]logoamavila.south east);
+\end{pgfonlayer}
+\node(logoencceja) at(current page.south west)[anchor=south west, xshift=1cm,yshift=.7cm]{\includegraphics[width=1cm]{ufrj}};
+\node(logoim) at(current page.south east)[anchor=south east, xshift=-1cm,yshift=.7cm]{\includegraphics[width=1cm]{ufrj}};
+\begin{pgfonlayer}{background}
+\draw ([yshift=2mm, xshift=-2mm]logoencceja.north west) rectangle ([xshift=2mm, yshift=-2mm]logoim.south east);
+\draw ([xshift=.8cm, yshift=-3.9cm]current page.north west) rectangle ([xshift=-.8cm,yshift=2.6cm]current page.south east);
+\end{pgfonlayer}
+\end{tikzpicture}
+\vspace{3cm}
+
+%The document start here!%
+
+\newpage
+\begin{tikzpicture}[remember picture, overlay]
+\node(logoencceja) at(current page.south west)[anchor=south west, xshift=1cm,yshift=.7cm]{\includegraphics[width=1cm]{ufrj}};
+\node(logoim) at(current page.south east)[anchor=south east, xshift=-1cm,yshift=.7cm]{\includegraphics[width=1cm]{ufrj}};
+\begin{pgfonlayer}{background}
+\draw ([yshift=2mm, xshift=-2mm]logoencceja.north west) rectangle ([xshift=2mm, yshift=-2mm]logoim.south east);
+\draw ([xshift=.8cm, yshift=-.5cm]current page.north west) rectangle ([xshift=-.8cm,yshift=2.6cm]current page.south east);
+\end{pgfonlayer}
+\end{tikzpicture}
+%Your document here%
+
+\end{document}
